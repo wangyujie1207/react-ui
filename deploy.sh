@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 npm version $1 && \
-git push
+git push --follow-tags
