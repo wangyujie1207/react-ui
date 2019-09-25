@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="0" time="2.334">
-  <testsuite name="我的第一个测试用例" errors="0" failures="0" skipped="0" timestamp="2019-09-25T08:58:53" time="1.165" tests="1">
+<testsuites name="jest tests" tests="8" failures="0" time="3.068">
+  <testsuite name="button" errors="0" failures="0" skipped="0" timestamp="2019-09-25T09:35:38" time="1.206" tests="1">
+    <testcase classname="button 是个div" name="button 是个div" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="我的第一个测试用例" errors="0" failures="0" skipped="0" timestamp="2019-09-25T09:35:38" time="1.214" tests="1">
     <testcase classname="我的第一个测试用例 add(1,2) 等于 3" name="我的第一个测试用例 add(1,2) 等于 3" time="0.006">
     </testcase>
   </testsuite>
-  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2019-09-25T08:58:53" time="1.244" tests="4">
+  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2019-09-25T09:35:38" time="1.256" tests="4">
     <testcase classname="classes 接受1个 className" name="classes 接受1个 className" time="0.004">
     </testcase>
-    <testcase classname="classes 接受2个 className" name="classes 接受2个 className" time="0.001">
+    <testcase classname="classes 接受2个 className" name="classes 接受2个 className" time="0">
     </testcase>
-    <testcase classname="classes 接受 undefined null, 结果不会出现undefined null" name="classes 接受 undefined null, 结果不会出现undefined null" time="0">
+    <testcase classname="classes 接受 undefined null, 结果不会出现undefined null" name="classes 接受 undefined null, 结果不会出现undefined null" time="0.001">
     </testcase>
     <testcase classname="classes 接受0个参数" name="classes 接受0个参数" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="button" errors="0" failures="0" skipped="0" timestamp="2019-09-25T08:58:53" time="1.289" tests="1">
-    <testcase classname="button 是个div" name="button 是个div" time="0.015">
+  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2019-09-25T09:35:38" time="1.309" tests="2">
+    <testcase classname="icon render successfully" name="icon render successfully" time="0.021">
     </testcase>
-  </testsuite>
-  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2019-09-25T08:58:53" time="1.365" tests="2">
-    <testcase classname="icon render successfully" name="icon render successfully" time="0.016">
-    </testcase>
-    <testcase classname="icon onClick" name="icon onClick" time="0.036">
+    <testcase classname="icon onClick" name="icon onClick" time="0.042">
     </testcase>
   </testsuite>
 </testsuites>
