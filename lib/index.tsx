@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Icon from './icon';
+import Icon from './icon/icon';
 
 const fn = (e: React.MouseEvent) => {
   console.log('fn', e.target);
