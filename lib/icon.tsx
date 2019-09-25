@@ -1,5 +1,6 @@
 import React from 'react';
-import './importAllIcons'
+import './importAllIcons';
+import './icon.scss';
 
 interface IconProps {
   name: string
@@ -7,12 +8,10 @@ interface IconProps {
 
 const Icon: React.FunctionComponent<IconProps> = (props) => {
   return (
-    <span>
-      <svg>
-        <use xlinkHref={`#${props.name}`} />
-      </svg>
-    </span>
-  )
-}
+    <svg className="fui-icon">
+      <use xlinkHref={`#${props.name}`}/>
+    </svg>
+  );
+};
 
-export default Icon
+export default Icon;
