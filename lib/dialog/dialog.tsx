@@ -59,9 +59,8 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
 Dialog.defaultProps = {
   closeOnClickMask: false
 };
-
-const alert = (content: string) => {
-  const onClose = () => {
+const modal = (content: React.ReactNode, buttons?: Array<React.ReactElement>, afterClose?: () => void) => {
+  const close = () => {
     ReactDOM.render(React.cloneElement(component, {visible: false}), div);
     ReactDOM.unmountComponentAtNode(div);
     div.remove();
@@ -69,60 +68,42 @@ const alert = (content: string) => {
   const component =
     <Dialog
       visible={true}
-      onClose={onClose}
-      buttons={[<button onClick={onClose}>ok</button>]}
+      onClose={() => {
+        close();
+        afterClose && afterClose();
+      }}
+      buttons={buttons}
     >
       {content}
     </Dialog>;
   const div = document.createElement('div');
   document.body.appendChild(div);
   ReactDOM.render(component, div);
+  return close;
 };
+
+const alert = (content: string) => {
+  const button = <button onClick={() => close()}>ok</button>;
+  const close = modal(content, [button]);
+};
+
 const confirm = (content: string, yes?: () => void, no?: () => void) => {
   const onYes = () => {
-    ReactDOM.render(React.cloneElement(component, {visible: false}), div);
-    ReactDOM.unmountComponentAtNode(div);
-    div.remove();
+    close();
     yes && yes();
   };
   const onNo = () => {
-    ReactDOM.render(React.cloneElement(component, {visible: false}), div);
-    ReactDOM.unmountComponentAtNode(div);
-    div.remove();
+    close();
     no && no();
   };
-  const component = (
-    <Dialog visible={true}
-            onClose={onNo}
-            buttons={[
-              <button onClick={onYes}>yes</button>,
-              <button onClick={onNo}>no</button>
-            ]}
-    >
-      {content}
-    </Dialog>);
-  const div = document.createElement('div');
-  document.body.appendChild(div);
-  ReactDOM.render(component, div);
+  const buttons = [
+    <button onClick={onYes}>yes</button>,
+    <button onClick={onNo}>no</button>
+  ];
+  const close = modal(content, buttons, no);
+
 };
 
-const modal = (content: React.ReactNode | React.ReactFragment) => {
-  const onClose = () => {
-    ReactDOM.render(React.cloneElement(component, {visible: false}), div);
-    ReactDOM.unmountComponentAtNode(div);
-    div.remove();
-  };
-  const component =
-    <Dialog
-      onClose={onClose}
-      visible={true}>
-      {content}
-    </Dialog>;
-  const div = document.createElement('div');
-  document.body.appendChild(div);
-  ReactDOM.render(component, div);
-  return onClose;
-};
 
 export {alert, confirm, modal};
 
