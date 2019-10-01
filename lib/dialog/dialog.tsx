@@ -10,6 +10,7 @@ interface Props {
   buttons?: Array<React.ReactElement>;
   onClose: React.MouseEventHandler;
   closeOnClickMask?: boolean;
+  enableMask?: boolean
 }
 
 
@@ -25,9 +26,9 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       props.onClose(e);
     }
   };
-  const x = props.visible ?
+  const result = props.visible ?
     <Fragment>
-      <div className={sc('mask')} onClick={onClickMask}></div>
+      {!props.enableMask && <div className={sc('mask')} onClick={onClickMask}></div>}
       <div className={sc()}>
         <div className={sc('close')} onClick={onClickClose}>
           <Icon name="close"></Icon>
@@ -52,12 +53,13 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
     :
     null;
   return (
-    ReactDOM.createPortal(x, document.body)
+    ReactDOM.createPortal(result, document.body)
   );
 };
 
 Dialog.defaultProps = {
-  closeOnClickMask: false
+  closeOnClickMask: false,
+  enableMask: false
 };
 const modal = (content: React.ReactNode, buttons?: Array<React.ReactElement>, afterClose?: () => void) => {
   const close = () => {
