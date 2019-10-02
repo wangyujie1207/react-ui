@@ -6,7 +6,7 @@ const sc = scopedClassMaker('bd-aside')
 interface Props extends React.HTMLAttributes<HTMLElement>{
 
 }
-const Content: React.FunctionComponent<Props> = (props) => {
+const Aside: React.FunctionComponent<Props> = (props) => {
   const {className, ...rest} = props
   return (
     <div className={sc('aside',{extra: className})} {...rest}>
@@ -15,4 +15,4 @@ const Content: React.FunctionComponent<Props> = (props) => {
   );
 };
 
-export default Content;
+export default Aside;
